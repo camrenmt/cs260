@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+p {
+  flex: content;
+  padding: 6px;
+}
+
 #nav-wrapper {
   display: inline-block;
   margin-bottom: 4em;
@@ -17,38 +22,75 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 100;
 }
 
 section {
   border: 2px solid #747c79;
   margin: 2em 0;
-  padding: 8px;
-  width: 85%;
-  height: 250px;
+  width: 90%;
+  height: 16em;
+  display: flex;
+  z-index: 10;
+  background-color: rgba(109, 137, 189, 0.418);
 }
 
 .right:hover {
-  transform: translateX(4em);
-  transition: 350ms ease-in-out;
+  transform: translateX(12em);
+  transition: 1s;
+  transition-delay: .25s;
 }
 
 .left:hover {
-  transform: translateX(-8em);
-  transition: 350ms ease-in-out;
+  transform: translateX(-12em);
+  transition: 1s;
+  transition-delay: .25s;
 }
 
 .right {
   right: 0;
-  float: right;
+  align-self: end;
   border-right: none;
   border-radius: 8px 0 0 8px;
+  transition: 1s;
+  margin-left: auto;
 }
 
 .left {
-  right: 0;
-  float: left;
+  left: 0;
+  align-self: start;
   border-left: none;
   border-radius: 0 8px 8px 0;
+  transition: 1s;
+  flex-direction: row-reverse;
+  margin-right: auto;
+}
+
+.sect_img {
+  flex: auto;
+  width: 125px;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: inherit;
+}
+
+.sect_img_left {
+  border-left: 6px solid #747c79;
+  border-radius: 0 6px 6px 0;
+}
+
+.sect_img_right {
+  border-right: 6px solid #747c79;
+  border-radius: 6px 0 0 6px;
+}
+
+#timp {
+  background-image: url("/assets/Timp1.png");
+}
+
+#provo-city-center {
+  background-image: url("/assets/cc.png");
 }
 
 .nav_item {
@@ -69,4 +111,35 @@ section {
 
 .active {
   background-color: #04AA6D;
+}
+
+.title {
+  font-size: 32px;
+  font-family: cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 6em;
+  text-align: center;
+  height: 16em;
+  top: 3.25em;
+  position: absolute;
+  z-index: -1;
+}
+
+.title_left {
+  left: 3em;
+}
+
+.title_right {
+  right: 3em;
+}
+
+.sect_container {
+  height: 16em;
+  position: relative;
+  margin: 2em 0;
+  display: grid;
+}
+
+.sect_link {
+  text-decoration: none;
+  color: inherit;
 }
