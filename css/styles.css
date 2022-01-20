@@ -1,32 +1,72 @@
-#nav-bar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(46, 65, 116);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .nav_item {
-    float: left;
-  }
-  
-  .nav_item a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  .nav_item a:hover {
-    background-color: rgb(33, 39, 49);
-  }
+body {
+  margin: 0;
+}
 
-  .active {
-    background-color: #04AA6D;
-  }
+#nav-wrapper {
+  display: inline-block;
+  margin-bottom: 4em;
+}
+
+#nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(46, 65, 116);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+section {
+  border: 2px solid #747c79;
+  margin: 2em 0;
+  padding: 8px;
+  width: 85%;
+  height: 250px;
+}
+
+.right:hover {
+  transform: translateX(4em);
+  transition: 350ms ease-in-out;
+}
+
+.left:hover {
+  transform: translateX(-8em);
+  transition: 350ms ease-in-out;
+}
+
+.right {
+  right: 0;
+  float: right;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.left {
+  right: 0;
+  float: left;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+}
+
+.nav_item {
+  float: left;
+}
+
+.nav_item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav_item a:hover {
+  background-color: rgb(33, 39, 49);
+}
+
+.active {
+  background-color: #04AA6D;
+}
