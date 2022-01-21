@@ -22,6 +22,7 @@ p {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 2vw;
   z-index: 100;
 }
 
@@ -29,20 +30,20 @@ section {
   border: 2px solid #333333;
   margin: 2em 0;
   width: 90%;
-  height: 16em;
+  height: 25vw;
   display: flex;
   z-index: 10;
   background-color: rgba(207, 207, 200, 0.74);
 }
 
 .right:hover {
-  transform: translateX(12em);
+  transform: translateX(25vw);
   transition: 1s;
   transition-delay: .25s;
 }
 
 .left:hover {
-  transform: translateX(-12em);
+  transform: translateX(-25vw);
   transition: 1s;
   transition-delay: .25s;
 }
@@ -103,6 +104,7 @@ section {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: calc(12px + 1.5vw);
 }
 
 .nav_item a:hover {
@@ -114,26 +116,26 @@ section {
 }
 
 .title {
-  font-size: 32px;
+  font-size: calc(12px + 2vw);
   font-family: cursive, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   width: 6em;
   text-align: center;
-  height: 16em;
-  top: 3.25em;
+  height: 25vw;
+  top: 10vw;
   position: absolute;
   z-index: -1;
 }
 
 .title_left {
-  left: 3em;
+  left: 10vw;
 }
 
 .title_right {
-  right: 3em;
+  right: 10vw;
 }
 
 .sect_container {
-  height: 16em;
+  height: 25vw;
   position: relative;
   margin: 2em 0;
   display: grid;
