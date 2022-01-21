@@ -50,6 +50,9 @@ section {
   display: flex;
   z-index: 10;
   background: rgba(207, 207, 200, 0.74);
+
+  -webkit-box-shadow: 23px 18px 17px 1px rgba(0,0,0,0.46); 
+  box-shadow: 23px 18px 17px 1px rgba(0,0,0,0.46);
 }
 
 .right:hover {
