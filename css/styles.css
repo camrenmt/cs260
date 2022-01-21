@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
 body {
   margin: 0;
  }
 
 p {
+  margin: auto 0;
+  text-align:justify;
+  height: fit-content;
+  max-height: 25vw;
   flex: content;
-  padding: 6px;
+  padding: 0 calc(6px + 2vw);
+  font-size: calc(6px + 1.5vw);
+  font-family: 'Open Sans Condensed';
+  overflow-y: hidden;
+  color: #333333;
+  opacity: 75%;
+
+  background-image: url('/assets/quote_transparent.png');
+  background-size: 3vw;
+  background-position:bottom right 4vw;
+  background-repeat: no-repeat;
 }
 
 #nav-wrapper {
@@ -33,7 +48,7 @@ section {
   height: 25vw;
   display: flex;
   z-index: 10;
-  background-color: rgba(207, 207, 200, 0.74);
+  background: rgba(207, 207, 200, 0.74);
 }
 
 .right:hover {
@@ -69,11 +84,12 @@ section {
 
 .sect_img {
   flex: auto;
-  width: 125px;
+  min-width: 45vw;
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: inherit;
+  background-position: center;
 }
 
 .sect_img_left {
@@ -92,6 +108,14 @@ section {
 
 #provo-city-center {
   background-image: url("/assets/cc-small2.png");
+}
+
+#payson {
+  background-image: url("/assets/p2_small.png");
+}
+
+#misc {
+  background-image: url("/assets/sp_small.png");
 }
 
 .nav_item {
