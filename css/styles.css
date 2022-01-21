@@ -1,6 +1,6 @@
 body {
   margin: 0;
-}
+ }
 
 p {
   flex: content;
@@ -9,7 +9,7 @@ p {
 
 #nav-wrapper {
   display: inline-block;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 #nav-bar {
@@ -26,13 +26,13 @@ p {
 }
 
 section {
-  border: 2px solid #747c79;
+  border: 2px solid #333333;
   margin: 2em 0;
   width: 90%;
   height: 16em;
   display: flex;
   z-index: 10;
-  background-color: rgba(109, 137, 189, 0.418);
+  background-color: rgba(207, 207, 200, 0.74);
 }
 
 .right:hover {
@@ -76,21 +76,21 @@ section {
 }
 
 .sect_img_left {
-  border-left: 6px solid #747c79;
+  border-left: 6px solid #333333;
   border-radius: 0 6px 6px 0;
 }
 
 .sect_img_right {
-  border-right: 6px solid #747c79;
+  border-right: 6px solid #333333;
   border-radius: 6px 0 0 6px;
 }
 
 #timp {
-  background-image: url("/assets/Timp1.png");
+  background-image: url("/assets/timp-small.png");
 }
 
 #provo-city-center {
-  background-image: url("/assets/cc.png");
+  background-image: url("/assets/cc-small2.png");
 }
 
 .nav_item {
