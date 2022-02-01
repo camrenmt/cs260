@@ -9,10 +9,11 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="js/calendar.js"></script>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 	</header>
 	
-	<body class="d-flex flex-column min-vh-100">
+	<body class="d-flex flex-column min-vh-100" onload="renderDate()">
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
@@ -24,82 +25,173 @@
 				  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="#">Home</a>
+							<a class="nav-link" href="#">Summary</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Portfolio</a>
+							<a class="nav-link" href="html/todo.html">To-do</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="html/reviews.html">Reviews</a>
+							<a class="nav-link" href="html/notes.html">Notes</a>
 						</li> 
 						<li class="nav-item">
-							<a class="nav-link" href="html/about.html">About</a>
+							<a class="nav-link" href="html/calendar.html">Calendar</a>
 						</li> 
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<section id="hello-block" class="bg-light"> 
-			<p>Welcome! Click any image to view more of my work</p>
-		</section>
-		<div id="content">
-			<div class="sect_container">
-				<span class="title title_left">Mt. Timpanogos</span>
-				<a class="sect_link" href="/html/timp.html">
-					<section class="right">
-						<div id="timp" class="sect_img sect_img_right"></div>
-						<p class="quote">
-							"May its beauty never be marred by evil hands. 
-							May it stand strong against the winds and storms that will beat upon it. 
-							May it be a beacon of peace and a refuge to the troubled. 
-							May it be an holy sanctuary to those whose burdens are heavy and who seek Thy consoling comfort."
-						</p>
-					</section>
-				</a>	
-			</div>
-			<div class="sect_container">
-				<a class="sect_link" href="html/city-center.html">
-					<span class="title title_right">Provo City Center</span>
-					<section class="left">
-						<div id="provo-city-center" class="sect_img sect_img_left"></div>
-						<p class="quote">
-							"In this day of wickedness and selfishness, 
-							when men's hearts fail them in turmoil and perplexities, 
-							we pray that Thou will blunt the powers of evil against Thy work and Thy children, 
-							and bless Thy covenant people with protection and strength to persist and stand fast in the works of righteousness."
-						</p>
-					</section>
-				</a>
-			</div>
-			<div class="sect_container">
-				<span class="title title_left">Payson</span>
-				<a class="sect_link" href="html/payson.html">
-					<section class="right">
-						<div id="payson" class="sect_img sect_img_right"></div>
-						<p class="quote">
-							"Permit Thy Holy Spirit to be here at all times, 
-							its presence to be felt by all who labor here. 
-							May this house be ever sacred to those who enter it and to all who look upon it. 
-							May it truly be the House of the Lord, a place of holiness."
-						</p>
-					</section>
-				</a>	
-			</div>
-			<div class="sect_container">
-				<a class="sect_link" href="html/misc.html">
-					<span class="title title_right">Miscellaneous</span>
-					<section class="left">
-						<div id="misc" class="sect_img sect_img_left"></div>
-						<p class="quote">
-							Those who understand the eternal blessings which come from the temple 
-							know that no sacrifice is too great, no price too heavy, 
-							no struggle too difficult in order to receive those blessings. 
-							There are never too many miles to travel, too many obstacles to overcome, 
-							or too much discomfort to endure. ~ President Thomas S Monson
-						</p>
-					</section>
-				</a>
-			</div>
+
+		<div class="d-flex flex-row justify-content-between">
+			<section id="left-menu">
+				<div class="calendar">
+					<div class="month">
+						<div class="prev" onclick="moveDate('prev')">
+							<span>&#10094;</span>
+						</div>
+						<h2 id="month"></h2>
+						<p id="date_str"></p>
+						<div class="next" onclick="moveDate('next')">
+							<span>&#10095;</span>
+						</div>
+					</div>
+					<div class="weekdays">
+						<div>Sun</div>
+						<div>Mon</div>
+						<div>Tue</div>
+						<div>Wed</div>
+						<div>Thu</div>
+						<div>Fri</div>
+						<div>Sat</div>
+					</div>
+					<div class="days"></div>
+				</div>
+				<div>
+					<img id="sum-img" src="assets/karsten-winegeart-iqqHQCWU9OI-unsplash.jpg">
+				</div>
+			</section>
+
+			<section class="mx-1" id="center">
+				<div class="text-center">
+					<h3 id="day-title"></h2>
+				</div>
+				
+				<span class="time-list">12:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">1:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">2:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">3:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">4:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">5:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">6:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">7:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">8:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">9:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">10:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">11:00AM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">12:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">1:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">2:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">3:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">4:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">5:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">6:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">7:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">8:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">9:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">10:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+				<span class="time-list">11:00PM</span>
+				<hr>
+				<div class="spacer"></div>
+			</section>
+
+			<section id="right-menu">
+				<div class="text-center">
+					<h3 id="todo_title">T0-DO</h2>
+				</div>
+				<div class="d-flex flex-column justify-content-center" id="note-wrapper">
+					<div class="note">
+						<div class="n-text">
+							<div class="n-title">Add calendar</div>
+							<div class="n-other">None</div>	
+						</div>
+						<div class="n-right">
+							<span class="dot-filled"></span>
+						</div>
+					</div>
+					<div class="note">
+						<div class="n-text">
+							<div class="n-title">Make cookies for Johnny</div>
+							<div class="n-other">Make sure they're gluten free</div>
+						</div>
+							<div class="n-right">
+							<span class="dot-empty"></span>
+						</div>
+					</div>
+					<div class="note">
+						<div class="n-text">
+							<div class="n-title">Add other features?</div>
+							<div class="n-other">Brainstorm!!!</div>
+						</div>
+						<div class="n-right">
+							<span class="dot-empty"></span>
+						</div>
+					</div>
+					<div class="note">
+						<div class="n-text">
+							<div class="n-title">Add New Item</div>
+							<div class="n-other"></div>
+						</div>
+						<div class="n-right">
+							<img id="add-note" src="assets/plus.png"></span>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		<footer class="footer mt-auto py-3 bg-light">
 			<div class="container">
